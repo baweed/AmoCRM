@@ -34,9 +34,9 @@ RESTful API для интеграции с [AmoCRM](https://www.amocrm.com/), о
 ```bash
 git clone <ваш-repo-url>
 cd AmoCRM
-
+```
 2️⃣ Настройте окружение
-
+```
 Создайте файл .env:
 DATABASE_URL="mysql://my_user:my_password@localhost:3306/my_database"
 MYSQL_ROOT_PASSWORD=mysecretrootpassword
@@ -49,11 +49,11 @@ AMOCRM_REDIRECT_URI=ваш_redirect_uri
 AMOCRM_SUBDOMAIN=ваш_поддомен
 PORT=3001
 ```
-
+```
 3️⃣ Запуск через Docker
 
 docker-compose up -d
-
+```
 
 📡 API Endpoints
 Вебхуки
