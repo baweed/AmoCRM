@@ -1,0 +1,60 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Token {
+  id        String   @id @default(uuid())
+  access    String   @db.Text
+  expiresIn Int
+  refresh   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+}
+
+model Account {
+  id        Int       @id @map("id")
+  subdomain String
+  selfLink  String    @map("self_link")
+  leads     Webhook[]
+  contacts  Contact[]
+}
+
+model Webhook {
+  id                Int    @id @map("id")
+  name              String
+  statusId          Int    @map("status_id")
+  price             Float
+  responsibleUserId Int    @map("responsible_user_id")
+  lastModified      Int    @map("last_modified")
+  modifiedUserId    Int    @map("modified_user_id")
+  createdUserId     Int    @map("created_user_id")
+  dateCreate        Int    @map("date_create")
+  pipelineId        Int    @map("pipeline_id")
+  accountId         Int    @map("account_id")
+  createdAt         Int    @map("created_at")
+  updatedAt         Int    @map("updated_at")
+
+  Account Account @relation(fields: [accountId], references: [id])
+}
+
+model Contact {
+  id                Int     @id
+  name              String
+  responsibleUserId Int     @map("responsible_user_id")
+  groupId           Int     @map("group_id")
+  dateCreate        Int     @map("date_create")
+  lastModified      Int    @map("last_modified")
+  createdUserId     Int     @map("created_user_id")
+  modifiedUserId    Int    @map("modified_user_id")
+  accountId         Int     @map("account_id")
+  createdAt         Int     @map("created_at")
+  updatedAt         Int     @map("updated_at")
+  phone             String? 
+  email             String? 
+
+  account Account @relation(fields: [accountId], references: [id])
+}
