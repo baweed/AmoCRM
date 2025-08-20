@@ -77,7 +77,8 @@ GET /v4/leads — получение всех сделок
 POST /v4/leads — создание новой сделки
 
 PATCH /v4/leads/:id — обновление сделки в AmoCRM
-\
+\```
+
 Обновление контакта
 ```
 PATCH /v4/contacts/12345
@@ -95,8 +96,8 @@ Content-Type: application/json
   ]
 
 }
-
 ```
+
 
 Обновление сделки
 
