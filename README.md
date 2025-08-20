@@ -48,6 +48,7 @@ AMOCRM_CLIENT_SECRET=ваш_client_secret
 AMOCRM_REDIRECT_URI=ваш_redirect_uri
 AMOCRM_SUBDOMAIN=ваш_поддомен
 PORT=3001
+```
 
 3️⃣ Запуск через Docker
 
@@ -59,23 +60,23 @@ docker-compose up -d
 
 POST /webhook — прием вебхуков от AmoCRM
 
-GET /v4/webhooks — получение списка вебхуков
+GET api/v4/webhooks — получение списка вебхуков
 
 Работа с контактами
 
-GET /v4/contacts — получение всех контактов
+GET api/v4/contacts — получение всех контактов
 
-POST /v4/contacts — создание нового контакта
+POST api/v4/contacts — создание нового контакта
 
-PATCH /v4/contacts/:id — обновление контакта в AmoCRM
+PATCH api/v4/contacts/:id — обновление контакта в AmoCRM
 
 Работа со сделками
 
-GET /v4/leads — получение всех сделок
+GET api/v4/leads — получение всех сделок
 
-POST /v4/leads — создание новой сделки
+POST api/v4/leads — создание новой сделки
 
-PATCH /v4/leads/:id — обновление сделки в AmoCRM
+PATCH api/v4/leads/:id — обновление сделки в AmoCRM
 
 ## Обновление контакта Пример
 
